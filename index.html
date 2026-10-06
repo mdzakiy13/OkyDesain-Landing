@@ -1,0 +1,1081 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OkyDesain — Premium Canva Design & Visual Branding</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            black: '#070709',
+                            dark: '#0e0f12',
+                            card: '#15161c',
+                            cardHover: '#1c1d26',
+                            border: 'rgba(255, 255, 255, 0.08)',
+                            orange: '#FF5E00',
+                            orangeHover: '#E05300',
+                            orangeLight: 'rgba(255, 94, 0, 0.12)',
+                        }
+                    },
+                    fontFamily: {
+                        heading: ['Outfit', 'sans-serif'],
+                        body: ['Plus Jakarta Sans', 'sans-serif'],
+                    },
+                    boxShadow: {
+                        'glow-orange': '0 0 50px -10px rgba(255, 94, 0, 0.35)',
+                        'glow-subtle': '0 0 30px -5px rgba(255, 94, 0, 0.15)',
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        /* Custom Customizations & Animations */
+        body {
+            background-color: #070709;
+            color: #E2E8F0;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, h4, .font-heading {
+            font-family: 'Outfit', sans-serif;
+        }
+
+        .ambient-glow {
+            position: absolute;
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, rgba(255, 94, 0, 0.18) 0%, rgba(7, 7, 9, 0) 70%);
+            border-radius: 50%;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .glass-card {
+            background: rgba(21, 22, 28, 0.7);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+        }
+
+        .glass-card-hover {
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .glass-card-hover:hover {
+            border-color: rgba(255, 94, 0, 0.4);
+            transform: translateY(-4px);
+            box-shadow: 0 12px 30px -10px rgba(255, 94, 0, 0.15);
+        }
+
+        .gradient-text {
+            background: linear-gradient(135deg, #FFFFFF 30%, #94A3B8 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .orange-gradient-text {
+            background: linear-gradient(135deg, #FF8A3D 0%, #FF5E00 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #070709;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #1e2029;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #FF5E00;
+        }
+
+        /* Modal backdrop transition */
+        .modal-fade {
+            transition: opacity 0.3s ease, visibility 0.3s ease;
+        }
+    </style>
+</head>
+<body class="antialiased selection:bg-brand-orange selection:text-white">
+
+    <!-- Sticky Navigation -->
+    <header class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 glass-card bg-brand-black/80 border-b border-white/5">
+        <div class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
+            <!-- Brand Logo -->
+            <a href="#" class="flex items-center gap-2 group">
+                <div class="w-10 h-10 rounded-xl bg-brand-orange/10 border border-brand-orange/30 flex items-center justify-center group-hover:bg-brand-orange transition-colors duration-300">
+                    <svg class="w-5 h-5 text-brand-orange group-hover:text-white transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zm0 0h12a2 2 0 002-2v-4a2 2 0 00-2-2h-23"></path>
+                    </svg>
+                </div>
+                <div class="flex flex-col">
+                    <span class="font-heading font-extrabold text-xl tracking-tight text-white flex items-center">
+                        OkyDesain<span class="text-brand-orange ml-0.5">.</span>
+                    </span>
+                    <span class="text-[10px] text-slate-400 font-medium tracking-widest uppercase">Canva Studio</span>
+                </div>
+            </a>
+
+            <!-- Desktop Menu -->
+            <nav class="hidden md:flex items-center gap-8 text-sm font-medium text-slate-300">
+                <a href="#about" class="hover:text-brand-orange transition-colors">About</a>
+                <a href="#services" class="hover:text-brand-orange transition-colors">Services</a>
+                <a href="#portfolio" class="hover:text-brand-orange transition-colors">Portfolio</a>
+                <a href="#why-us" class="hover:text-brand-orange transition-colors">Why Choose Me</a>
+                <a href="#process" class="hover:text-brand-orange transition-colors">Process</a>
+                <a href="#pricing" class="hover:text-brand-orange transition-colors">Pricing</a>
+            </nav>
+
+            <!-- Actions -->
+            <div class="hidden md:flex items-center gap-4">
+                <button onclick="openOrderModal()" class="px-5 py-2.5 rounded-full text-sm font-semibold text-white bg-brand-orange hover:bg-brand-orangeHover shadow-glow-subtle hover:shadow-glow-orange transition-all duration-300 transform hover:-translate-y-0.5">
+                    Order a Design
+                </button>
+            </div>
+
+            <!-- Mobile Menu Toggle -->
+            <button id="mobile-menu-btn" class="md:hidden text-slate-300 hover:text-white p-2">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                </svg>
+            </button>
+        </div>
+
+        <!-- Mobile Menu Container -->
+        <div id="mobile-menu" class="hidden md:hidden px-6 pt-2 pb-6 border-t border-white/10 bg-brand-dark/95">
+            <div class="flex flex-col gap-4 text-base font-medium text-slate-300 pt-2">
+                <a href="#about" class="mobile-link hover:text-brand-orange">About</a>
+                <a href="#services" class="mobile-link hover:text-brand-orange">Services</a>
+                <a href="#portfolio" class="mobile-link hover:text-brand-orange">Portfolio</a>
+                <a href="#why-us" class="mobile-link hover:text-brand-orange">Why Choose Me</a>
+                <a href="#process" class="mobile-link hover:text-brand-orange">Process</a>
+                <a href="#pricing" class="mobile-link hover:text-brand-orange">Pricing</a>
+                <button onclick="openOrderModal()" class="w-full mt-2 py-3 rounded-xl font-semibold text-white bg-brand-orange text-center">
+                    Order a Design
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- HERO SECTION -->
+    <section class="relative min-h-screen pt-32 pb-20 flex items-center overflow-hidden">
+        <div class="ambient-glow -top-20 -left-20"></div>
+        <div class="ambient-glow top-1/2 -right-20"></div>
+
+        <div class="max-w-7xl mx-auto px-6 relative z-10 w-full">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                <!-- Left Text Content -->
+                <div class="lg:col-span-7 space-y-8 text-center lg:text-left">
+                    <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full glass-card border-brand-orange/30 text-xs font-semibold text-brand-orange tracking-wide">
+                        <span class="w-2 h-2 rounded-full bg-brand-orange animate-pulse"></span>
+                        PREMIUM CANVA DESIGN SERVICES
+                    </div>
+
+                    <h1 class="text-4xl sm:text-6xl lg:text-6xl font-extrabold leading-[1.1] tracking-tight gradient-text">
+                        Elevate Your Brand with <span class="orange-gradient-text">High-Impact</span> Canva Designs.
+                    </h1>
+
+                    <p class="text-lg sm:text-xl text-slate-400 max-w-2xl font-light leading-relaxed mx-auto lg:mx-0">
+                        I create sleek, custom, agency-grade graphics, marketing collateral, and presentations built inside Canva—giving you 100% editable control over your visual identity.
+                    </p>
+
+                    <div class="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 pt-2">
+                        <button onclick="openOrderModal()" class="w-full sm:w-auto px-8 py-4 rounded-full text-base font-semibold text-white bg-brand-orange hover:bg-brand-orangeHover shadow-glow-orange transition-all duration-300 transform hover:-translate-y-1 flex items-center justify-center gap-2">
+                            <span>Order a Design</span>
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+                        </button>
+                        <a href="#portfolio" class="w-full sm:w-auto px-8 py-4 rounded-full text-base font-semibold text-slate-200 glass-card hover:bg-white/10 hover:text-white transition-all duration-300 text-center border border-white/10">
+                            View Portfolio
+                        </a>
+                    </div>
+
+                    <!-- Micro Social Proof -->
+                    <div class="pt-6 border-t border-white/10 flex items-center justify-center lg:justify-start gap-8">
+                        <div>
+                            <div class="text-2xl font-bold text-white font-heading">500+</div>
+                            <div class="text-xs text-slate-400">Assets Delivered</div>
+                        </div>
+                        <div class="h-8 w-px bg-white/10"></div>
+                        <div>
+                            <div class="text-2xl font-bold text-white font-heading">4.9/5</div>
+                            <div class="text-xs text-slate-400">Client Rating ★★★★★</div>
+                        </div>
+                        <div class="h-8 w-px bg-white/10"></div>
+                        <div>
+                            <div class="text-2xl font-bold text-white font-heading">100%</div>
+                            <div class="text-xs text-slate-400">Canva Editable</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right Visual Mockup Showcase -->
+                <div class="lg:col-span-5 relative">
+                    <div class="relative mx-auto max-w-md lg:max-w-none">
+                        <!-- Main Card -->
+                        <div class="glass-card rounded-2xl p-4 border border-white/15 shadow-2xl relative z-10 overflow-hidden transform rotate-1 transition-transform hover:rotate-0 duration-500">
+                            <div class="relative h-72 sm:h-80 rounded-xl overflow-hidden bg-gradient-to-br from-neutral-900 to-black p-6 flex flex-col justify-between border border-white/5">
+                                <div class="flex justify-between items-start">
+                                    <span class="px-3 py-1 rounded-full text-xs font-semibold bg-brand-orange/20 text-brand-orange border border-brand-orange/30">
+                                        Instagram Carousel Kit
+                                    </span>
+                                    <div class="w-8 h-8 rounded-full bg-white/10 flex items-center justify-center text-white text-xs">
+                                        ✦
+                                    </div>
+                                </div>
+                                <div class="space-y-2">
+                                    <p class="text-xs font-semibold text-brand-orange tracking-widest uppercase">Brand Aesthetic System</p>
+                                    <h3 class="text-2xl font-bold text-white font-heading">Minimalist E-Commerce Campaign</h3>
+                                    <p class="text-xs text-slate-400">Seamless multi-slide design created with custom typography hierarchy.</p>
+                                </div>
+                                <div class="flex items-center justify-between pt-2 border-t border-white/10">
+                                    <span class="text-xs text-slate-300">Editable in Canva Pro / Free</span>
+                                    <span class="text-xs font-semibold text-brand-orange">Ready to Export →</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Floating Layered Cards for Depth -->
+                        <div class="glass-card absolute -bottom-6 -left-6 z-20 p-4 rounded-xl border border-brand-orange/30 shadow-glow-subtle hidden sm:block max-w-[220px]">
+                            <div class="flex items-center gap-3">
+                                <div class="w-10 h-10 rounded-lg bg-brand-orange/20 flex items-center justify-center text-brand-orange font-bold text-lg">
+                                    ⚡
+                                </div>
+                                <div>
+                                    <div class="text-xs font-bold text-white">24h Turnaround</div>
+                                    <div class="text-[10px] text-slate-400">Available for Priority Requests</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="glass-card absolute -top-6 -right-4 z-0 p-4 rounded-xl border border-white/10 hidden sm:block max-w-[200px]">
+                            <div class="flex items-center gap-2">
+                                <div class="text-brand-orange font-bold text-sm">✓</div>
+                                <div class="text-xs text-slate-200 font-medium">Custom Brand Palette</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ABOUT SECTION -->
+    <section id="about" class="py-24 bg-brand-dark/50 border-y border-white/5 relative">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                <div class="lg:col-span-5">
+                    <div class="relative">
+                        <div class="aspect-square rounded-2xl glass-card overflow-hidden p-8 flex flex-col justify-between border-brand-orange/20">
+                            <div class="w-16 h-16 rounded-2xl bg-brand-orange/10 border border-brand-orange/30 flex items-center justify-center text-brand-orange font-bold text-2xl">
+                                🎨
+                            </div>
+                            <div class="space-y-4">
+                                <h3 class="text-2xl font-bold text-white font-heading">"Templates get you started. Custom design builds an iconic brand."</h3>
+                                <p class="text-sm text-slate-400">Combining high-end editorial graphic principles with Canva’s intuitive software so you never struggle with design again.</p>
+                            </div>
+                            <div class="flex items-center gap-3 pt-4 border-t border-white/10">
+                                <div class="w-10 h-10 rounded-full bg-brand-orange/30 border border-brand-orange flex items-center justify-center font-bold text-white text-sm">
+                                    OD
+                                </div>
+                                <div>
+                                    <div class="text-sm font-semibold text-white">Canva Certified Expert</div>
+                                    <div class="text-xs text-slate-400">4+ Years Active Practice</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="lg:col-span-7 space-y-6">
+                    <div class="inline-block text-xs font-semibold text-brand-orange tracking-widest uppercase">About The Designer</div>
+                    <h2 class="text-3xl sm:text-4xl font-extrabold text-white font-heading">
+                        Bridging agency craftsmanship with effortless Canva flexibility.
+                    </h2>
+                    <p class="text-slate-300 leading-relaxed font-light">
+                        Hello! I’m a dedicated Canva design strategist. Many businesses struggle with static Adobe files that require expensive software or complex skills to edit. I solve this by creating stunning, bespoke visual materials straight inside Canva.
+                    </p>
+                    <p class="text-slate-400 leading-relaxed font-light">
+                        When we work together, you get world-class aesthetics tailored specifically to your brand voice—delivered with clean grid structure, proper font pairing, and reusable layouts that your team can tweak anytime.
+                    </p>
+
+                    <div class="grid grid-cols-2 sm:grid-cols-3 gap-4 pt-4">
+                        <div class="p-4 rounded-xl glass-card border-white/5">
+                            <div class="text-brand-orange font-bold text-lg mb-1">01. Bespoke</div>
+                            <div class="text-xs text-slate-400">Zero default templates. Designed from scratch.</div>
+                        </div>
+                        <div class="p-4 rounded-xl glass-card border-white/5">
+                            <div class="text-brand-orange font-bold text-lg mb-1">02. Strategic</div>
+                            <div class="text-xs text-slate-400">Built for audience conversion and clarity.</div>
+                        </div>
+                        <div class="p-4 rounded-xl glass-card border-white/5">
+                            <div class="text-brand-orange font-bold text-lg mb-1">03. Transferable</div>
+                            <div class="text-xs text-slate-400">Full Canva editable link rights included.</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SERVICES SECTION -->
+    <section id="services" class="py-24 relative">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center max-w-2xl mx-auto mb-16 space-y-3">
+                <span class="text-xs font-semibold text-brand-orange tracking-widest uppercase">What I Deliver</span>
+                <h2 class="text-3xl sm:text-5xl font-extrabold text-white font-heading">Specialized Design Services</h2>
+                <p class="text-slate-400 text-sm sm:text-base">Tailored visual solutions built in Canva to cover every touchpoint of your brand.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- Service 1 -->
+                <div class="glass-card glass-card-hover rounded-2xl p-8 space-y-4 border border-white/10 relative group">
+                    <div class="w-12 h-12 rounded-xl bg-brand-orangeLight border border-brand-orange/30 flex items-center justify-center text-brand-orange font-bold text-xl group-hover:scale-110 transition-transform">
+                        📱
+                    </div>
+                    <h3 class="text-xl font-bold text-white font-heading">Social Media Design</h3>
+                    <p class="text-sm text-slate-400 leading-relaxed">
+                        High-converting graphics for LinkedIn, Facebook, and Twitter. Designed to drive engagement, clicks, and brand authority.
+                    </p>
+                    <ul class="text-xs text-slate-300 space-y-2 pt-2">
+                        <li class="flex items-center gap-2"><span class="text-brand-orange">•</span> Carousels & Infographics</li>
+                        <li class="flex items-center gap-2"><span class="text-brand-orange">•</span> Promotional Banners</li>
+                    </ul>
+                </div>
+
+                <!-- Service 2 -->
+                <div class="glass-card glass-card-hover rounded-2xl p-8 space-y-4 border border-white/10 relative group">
+                    <div class="w-12 h-12 rounded-xl bg-brand-orangeLight border border-brand-orange/30 flex items-center justify-center text-brand-orange font-bold text-xl group-hover:scale-110 transition-transform">
+                        📸
+                    </div>
+                    <h3 class="text-xl font-bold text-white font-heading">Instagram Feed Curation</h3>
+                    <p class="text-sm text-slate-400 leading-relaxed">
+                        Cohesive 9-grid or 12-grid feed layouts, story highlight covers, and editable Instagram post templates.
+                    </p>
+                    <ul class="text-xs text-slate-300 space-y-2 pt-2">
+                        <li class="flex items-center gap-2"><span class="text-brand-orange">•</span> Grid Puzzle Layouts</li>
+                        <li class="flex items-center gap-2"><span class="text-brand-orange">•</span> Story Template Kits</li>
+                    </ul>
+                </div>
+
+                <!-- Service 3 -->
+                <div class="glass-card glass-card-hover rounded-2xl p-8 space-y-4 border border-white/10 relative group">
+                    <div class="w-12 h-12 rounded-xl bg-brand-orangeLight border border-brand-orange/30 flex items-center justify-center text-brand-orange font-bold text-xl group-hover:scale-110 transition-transform">
+                        🖼️
+                    </div>
+                    <h3 class="text-xl font-bold text-white font-heading">Poster & Event Graphics</h3>
+                    <p class="text-sm text-slate-400 leading-relaxed">
+                        Bold, typography-focused print & digital posters, event flyers, and concert announcements.
+                    </p>
+                    <ul class="text-xs text-slate-300 space-y-2 pt-2">
+                        <li class="flex items-center gap-2"><span class="text-brand-orange">•</span> Print-Ready PDFs (300 DPI)</li>
+                        <li class="flex items-center gap-2"><span class="text-brand-orange">•</span> Digital Event Banners</li>
+                    </ul>
+                </div>
+
+                <!-- Service 4 -->
+                <div class="glass-card glass-card-hover rounded-2xl p-8 space-y-4 border border-white/10 relative group">
+                    <div class="w-12 h-12 rounded-xl bg-brand-orangeLight border border-brand-orange/30 flex items-center justify-center text-brand-orange font-bold text-xl group-hover:scale-110 transition-transform">
+                        📊
+                    </div>
+                    <h3 class="text-xl font-bold text-white font-heading">Presentation Decks</h3>
+                    <p class="text-sm text-slate-400 leading-relaxed">
+                        Sleek pitch decks, client proposals, keynotes, and webinar presentation slides that hold reader attention.
+                    </p>
+                    <ul class="text-xs text-slate-300 space-y-2 pt-2">
+                        <li class="flex items-center gap-2"><span class="text-brand-orange">•</span> Custom Master Slides</li>
+                        <li class="flex items-center gap-2"><span class="text-brand-orange">•</span> Data Visualization Charts</li>
+                    </ul>
+                </div>
+
+                <!-- Service 5 -->
+                <div class="glass-card glass-card-hover rounded-2xl p-8 space-y-4 border border-white/10 relative group">
+                    <div class="w-12 h-12 rounded-xl bg-brand-orangeLight border border-brand-orange/30 flex items-center justify-center text-brand-orange font-bold text-xl group-hover:scale-110 transition-transform">
+                        📣
+                    </div>
+                    <h3 class="text-xl font-bold text-white font-heading">Promotional Materials</h3>
+                    <p class="text-sm text-slate-400 leading-relaxed">
+                        Lead magnet e-books, workbook guides, marketing brochures, and paid advertisement graphic sets.
+                    </p>
+                    <ul class="text-xs text-slate-300 space-y-2 pt-2">
+                        <li class="flex items-center gap-2"><span class="text-brand-orange">•</span> Multi-page E-books</li>
+                        <li class="flex items-center gap-2"><span class="text-brand-orange">•</span> High-CTR Ad Creatives</li>
+                    </ul>
+                </div>
+
+                <!-- Service 6 -->
+                <div class="glass-card glass-card-hover rounded-2xl p-8 space-y-4 border border-white/10 relative group">
+                    <div class="w-12 h-12 rounded-xl bg-brand-orangeLight border border-brand-orange/30 flex items-center justify-center text-brand-orange font-bold text-xl group-hover:scale-110 transition-transform">
+                        ✨
+                    </div>
+                    <h3 class="text-xl font-bold text-white font-heading">Branding & Visual Identity</h3>
+                    <p class="text-sm text-slate-400 leading-relaxed">
+                        Comprehensive Canva Brand Hub setup: color palettes, font pairings, logo kits, and brand guidelines.
+                    </p>
+                    <ul class="text-xs text-slate-300 space-y-2 pt-2">
+                        <li class="flex items-center gap-2"><span class="text-brand-orange">•</span> Canva Brand Kit Setup</li>
+                        <li class="flex items-center gap-2"><span class="text-brand-orange">•</span> Visual Identity Guidelines</li>
+                    </ul>
+                </div>
+
+                <!-- Service 7 (Full Span Callout) -->
+                <div class="md:col-span-2 lg:col-span-3 glass-card glass-card-hover rounded-2xl p-8 border border-brand-orange/30 flex flex-col sm:flex-row items-center justify-between gap-6">
+                    <div class="flex items-center gap-4">
+                        <div class="w-14 h-14 rounded-xl bg-brand-orange/20 border border-brand-orange/40 flex items-center justify-center text-brand-orange text-2xl font-bold shrink-0">
+                            🛠️
+                        </div>
+                        <div>
+                            <h3 class="text-xl font-bold text-white font-heading">Custom Canva Request</h3>
+                            <p class="text-sm text-slate-400">Have a specific design requirement not listed above? I build custom tailored Canva projects for any format.</p>
+                        </div>
+                    </div>
+                    <button onclick="openOrderModal()" class="shrink-0 px-6 py-3 rounded-full text-sm font-semibold text-white bg-brand-orange hover:bg-brand-orangeHover transition-colors">
+                        Request Custom Design
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PORTFOLIO SECTION -->
+    <section id="portfolio" class="py-24 bg-brand-dark/30 border-t border-white/5 relative">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-6">
+                <div>
+                    <span class="text-xs font-semibold text-brand-orange tracking-widest uppercase">Curated Showcase</span>
+                    <h2 class="text-3xl sm:text-5xl font-extrabold text-white font-heading mt-2">Design Portfolio</h2>
+                </div>
+
+                <!-- Category Filters -->
+                <div class="flex flex-wrap items-center gap-2" id="portfolio-filters">
+                    <button data-filter="all" class="filter-btn active text-xs font-medium px-4 py-2 rounded-full border border-brand-orange bg-brand-orange text-white transition-all">All Projects</button>
+                    <button data-filter="social" class="filter-btn text-xs font-medium px-4 py-2 rounded-full border border-white/10 glass-card text-slate-300 hover:text-white hover:border-brand-orange/50 transition-all">Social Media</button>
+                    <button data-filter="poster" class="filter-btn text-xs font-medium px-4 py-2 rounded-full border border-white/10 glass-card text-slate-300 hover:text-white hover:border-brand-orange/50 transition-all">Poster</button>
+                    <button data-filter="branding" class="filter-btn text-xs font-medium px-4 py-2 rounded-full border border-white/10 glass-card text-slate-300 hover:text-white hover:border-brand-orange/50 transition-all">Branding</button>
+                    <button data-filter="presentation" class="filter-btn text-xs font-medium px-4 py-2 rounded-full border border-white/10 glass-card text-slate-300 hover:text-white hover:border-brand-orange/50 transition-all">Presentation</button>
+                    <button data-filter="promotion" class="filter-btn text-xs font-medium px-4 py-2 rounded-full border border-white/10 glass-card text-slate-300 hover:text-white hover:border-brand-orange/50 transition-all">Promotion</button>
+                </div>
+            </div>
+
+            <!-- Gallery Grid -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6" id="portfolio-grid">
+                
+                <!-- Project 1 -->
+                <div class="portfolio-item glass-card rounded-2xl overflow-hidden border border-white/10 group cursor-pointer" data-category="social" onclick="openLightbox('Aura Skincare Instagram System', 'Social Media', '10-slide cohesive Instagram carousel with custom color tones and layout hierarchy.', 'https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=80&w=800&auto=format&fit=crop')">
+                    <div class="relative h-64 overflow-hidden bg-neutral-900">
+                        <img src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=80&w=800&auto=format&fit=crop" alt="Aura Skincare Design" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                        <div class="absolute inset-0 bg-gradient-to-t from-brand-black via-transparent to-transparent opacity-80"></div>
+                        <span class="absolute top-4 left-4 px-3 py-1 rounded-full text-[10px] font-semibold bg-brand-black/80 text-brand-orange border border-brand-orange/30">Social Media</span>
+                    </div>
+                    <div class="p-6 space-y-2">
+                        <h3 class="text-lg font-bold text-white font-heading group-hover:text-brand-orange transition-colors">Aura Skincare Instagram System</h3>
+                        <p class="text-xs text-slate-400">10-slide cohesive Instagram carousel kit for modern skincare launch.</p>
+                    </div>
+                </div>
+
+                <!-- Project 2 -->
+                <div class="portfolio-item glass-card rounded-2xl overflow-hidden border border-white/10 group cursor-pointer" data-category="poster" onclick="openLightbox('CyberTech Summit Poster', 'Poster', 'High-impact event flyer designed for print and digital social distribution.', 'https://images.unsplash.com/photo-1509198397868-475647b2a1e5?q=80&w=800&auto=format&fit=crop')">
+                    <div class="relative h-64 overflow-hidden bg-neutral-900">
+                        <img src="https://images.unsplash.com/photo-1509198397868-475647b2a1e5?q=80&w=800&auto=format&fit=crop" alt="CyberTech Poster" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                        <div class="absolute inset-0 bg-gradient-to-t from-brand-black via-transparent to-transparent opacity-80"></div>
+                        <span class="absolute top-4 left-4 px-3 py-1 rounded-full text-[10px] font-semibold bg-brand-black/80 text-brand-orange border border-brand-orange/30">Poster</span>
+                    </div>
+                    <div class="p-6 space-y-2">
+                        <h3 class="text-lg font-bold text-white font-heading group-hover:text-brand-orange transition-colors">CyberTech Summit 2026</h3>
+                        <p class="text-xs text-slate-400">Bold, neon typography poster design with high visual dynamic.</p>
+                    </div>
+                </div>
+
+                <!-- Project 3 -->
+                <div class="portfolio-item glass-card rounded-2xl overflow-hidden border border-white/10 group cursor-pointer" data-category="branding" onclick="openLightbox('Nexus Venture Capital Brand Identity', 'Branding', 'Complete Canva Brand Hub containing logo variations, font palette, and document templates.', 'https://images.unsplash.com/photo-1600132806370-bf17e65e942f?q=80&w=800&auto=format&fit=crop')">
+                    <div class="relative h-64 overflow-hidden bg-neutral-900">
+                        <img src="https://images.unsplash.com/photo-1600132806370-bf17e65e942f?q=80&w=800&auto=format&fit=crop" alt="Nexus Brand Hub" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                        <div class="absolute inset-0 bg-gradient-to-t from-brand-black via-transparent to-transparent opacity-80"></div>
+                        <span class="absolute top-4 left-4 px-3 py-1 rounded-full text-[10px] font-semibold bg-brand-black/80 text-brand-orange border border-brand-orange/30">Branding</span>
+                    </div>
+                    <div class="p-6 space-y-2">
+                        <h3 class="text-lg font-bold text-white font-heading group-hover:text-brand-orange transition-colors">Nexus VC Brand Hub</h3>
+                        <p class="text-xs text-slate-400">Comprehensive brand kit with dark-mode primary assets.</p>
+                    </div>
+                </div>
+
+                <!-- Project 4 -->
+                <div class="portfolio-item glass-card rounded-2xl overflow-hidden border border-white/10 group cursor-pointer" data-category="presentation" onclick="openLightbox('Fintech Series-A Investor Deck', 'Presentation', '20-slide investor pitch deck with custom charts and infographic components.', 'https://images.unsplash.com/photo-1551836022-d5d88e9218df?q=80&w=800&auto=format&fit=crop')">
+                    <div class="relative h-64 overflow-hidden bg-neutral-900">
+                        <img src="https://images.unsplash.com/photo-1551836022-d5d88e9218df?q=80&w=800&auto=format&fit=crop" alt="Investor Pitch Deck" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                        <div class="absolute inset-0 bg-gradient-to-t from-brand-black via-transparent to-transparent opacity-80"></div>
+                        <span class="absolute top-4 left-4 px-3 py-1 rounded-full text-[10px] font-semibold bg-brand-black/80 text-brand-orange border border-brand-orange/30">Presentation</span>
+                    </div>
+                    <div class="p-6 space-y-2">
+                        <h3 class="text-lg font-bold text-white font-heading group-hover:text-brand-orange transition-colors">Fintech Series-A Pitch Deck</h3>
+                        <p class="text-xs text-slate-400">20-slide high-stakes investor pitch deck layout.</p>
+                    </div>
+                </div>
+
+                <!-- Project 5 -->
+                <div class="portfolio-item glass-card rounded-2xl overflow-hidden border border-white/10 group cursor-pointer" data-category="promotion" onclick="openLightbox('SaaS Growth Playbook E-Book', 'Promotion', '32-page lead magnet downloadable e-book with clean layout grid.', 'https://images.unsplash.com/photo-1544716278-ca5e3f4abd8c?q=80&w=800&auto=format&fit=crop')">
+                    <div class="relative h-64 overflow-hidden bg-neutral-900">
+                        <img src="https://images.unsplash.com/photo-1544716278-ca5e3f4abd8c?q=80&w=800&auto=format&fit=crop" alt="SaaS Playbook E-book" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                        <div class="absolute inset-0 bg-gradient-to-t from-brand-black via-transparent to-transparent opacity-80"></div>
+                        <span class="absolute top-4 left-4 px-3 py-1 rounded-full text-[10px] font-semibold bg-brand-black/80 text-brand-orange border border-brand-orange/30">Promotion</span>
+                    </div>
+                    <div class="p-6 space-y-2">
+                        <h3 class="text-lg font-bold text-white font-heading group-hover:text-brand-orange transition-colors">SaaS Growth Playbook E-Book</h3>
+                        <p class="text-xs text-slate-400">32-page promotional lead magnet designed in Canva.</p>
+                    </div>
+                </div>
+
+                <!-- Project 6 -->
+                <div class="portfolio-item glass-card rounded-2xl overflow-hidden border border-white/10 group cursor-pointer" data-category="social" onclick="openLightbox('Fitness App Campaign Ads', 'Social Media', 'Ad set designed to increase app conversion rates across Instagram & Meta.', 'https://images.unsplash.com/photo-1534438327276-14e5300c3a48?q=80&w=800&auto=format&fit=crop')">
+                    <div class="relative h-64 overflow-hidden bg-neutral-900">
+                        <img src="https://images.unsplash.com/photo-1534438327276-14e5300c3a48?q=80&w=800&auto=format&fit=crop" alt="Fitness Campaign" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                        <div class="absolute inset-0 bg-gradient-to-t from-brand-black via-transparent to-transparent opacity-80"></div>
+                        <span class="absolute top-4 left-4 px-3 py-1 rounded-full text-[10px] font-semibold bg-brand-black/80 text-brand-orange border border-brand-orange/30">Social Media</span>
+                    </div>
+                    <div class="p-6 space-y-2">
+                        <h3 class="text-lg font-bold text-white font-heading group-hover:text-brand-orange transition-colors">Pulse Fitness Paid Ad Suite</h3>
+                        <p class="text-xs text-slate-400">High-converting Meta advertisement visual set.</p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- WHY CHOOSE ME -->
+    <section id="why-us" class="py-24 relative">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center max-w-2xl mx-auto mb-16 space-y-3">
+                <span class="text-xs font-semibold text-brand-orange tracking-widest uppercase">The Difference</span>
+                <h2 class="text-3xl sm:text-5xl font-extrabold text-white font-heading">Why Choose My Canva Service</h2>
+                <p class="text-slate-400 text-sm sm:text-base">Designed for brand owners who want top-tier aesthetics without losing template flexibility.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Advantage 1 -->
+                <div class="glass-card p-8 rounded-2xl border border-white/10 space-y-3">
+                    <div class="w-10 h-10 rounded-lg bg-brand-orange/10 text-brand-orange flex items-center justify-center font-bold">
+                        ✦
+                    </div>
+                    <h3 class="text-lg font-bold text-white font-heading">Creative & Professional</h3>
+                    <p class="text-xs text-slate-400 leading-relaxed">
+                        I apply strict graphic design rules—hierarchy, white space, typography pairing—to give your Canva templates an high-end look.
+                    </p>
+                </div>
+
+                <!-- Advantage 2 -->
+                <div class="glass-card p-8 rounded-2xl border border-white/10 space-y-3">
+                    <div class="w-10 h-10 rounded-lg bg-brand-orange/10 text-brand-orange flex items-center justify-center font-bold">
+                        💬
+                    </div>
+                    <h3 class="text-lg font-bold text-white font-heading">Fast Communication</h3>
+                    <p class="text-xs text-slate-400 leading-relaxed">
+                        No ghosting or long waits. You get direct updates, quick response times, and collaborative feedback loops.
+                    </p>
+                </div>
+
+                <!-- Advantage 3 -->
+                <div class="glass-card p-8 rounded-2xl border border-white/10 space-y-3">
+                    <div class="w-10 h-10 rounded-lg bg-brand-orange/10 text-brand-orange flex items-center justify-center font-bold">
+                        🎨
+                    </div>
+                    <h3 class="text-lg font-bold text-white font-heading">100% Custom Design</h3>
+                    <p class="text-xs text-slate-400 leading-relaxed">
+                        Every file is crafted specifically for your target audience, color palette, and business objectives.
+                    </p>
+                </div>
+
+                <!-- Advantage 4 -->
+                <div class="glass-card p-8 rounded-2xl border border-white/10 space-y-3">
+                    <div class="w-10 h-10 rounded-lg bg-brand-orange/10 text-brand-orange flex items-center justify-center font-bold">
+                        🔍
+                    </div>
+                    <h3 class="text-lg font-bold text-white font-heading">Attention to Detail</h3>
+                    <p class="text-xs text-slate-400 leading-relaxed">
+                        Pixel-perfect alignment, proper spacing, clean layers, and organize element groups inside Canva.
+                    </p>
+                </div>
+
+                <!-- Advantage 5 -->
+                <div class="glass-card p-8 rounded-2xl border border-white/10 space-y-3">
+                    <div class="w-10 h-10 rounded-lg bg-brand-orange/10 text-brand-orange flex items-center justify-center font-bold">
+                        🏷️
+                    </div>
+                    <h3 class="text-lg font-bold text-white font-heading">Affordable Pricing</h3>
+                    <p class="text-xs text-slate-400 leading-relaxed">
+                        Get studio-quality brand assets at straightforward freelance prices with zero hidden costs.
+                    </p>
+                </div>
+
+                <!-- Advantage 6 -->
+                <div class="glass-card p-8 rounded-2xl border border-white/10 space-y-3">
+                    <div class="w-10 h-10 rounded-lg bg-brand-orange/10 text-brand-orange flex items-center justify-center font-bold">
+                        🔄
+                    </div>
+                    <h3 class="text-lg font-bold text-white font-heading">Easy Revision Process</h3>
+                    <p class="text-xs text-slate-400 leading-relaxed">
+                        Because we work directly in Canva, revisions are seamless and fast, ensuring you get exactly what you envision.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- DESIGN PROCESS -->
+    <section id="process" class="py-24 bg-brand-dark/50 border-y border-white/5 relative">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center max-w-2xl mx-auto mb-16 space-y-3">
+                <span class="text-xs font-semibold text-brand-orange tracking-widest uppercase">Simple Workflow</span>
+                <h2 class="text-3xl sm:text-5xl font-extrabold text-white font-heading">How We Work Together</h2>
+                <p class="text-slate-400 text-sm sm:text-base">A transparent, 4-step system designed for swift turnaround and stress-free execution.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <!-- Step 1 -->
+                <div class="glass-card rounded-2xl p-8 border border-white/10 relative">
+                    <div class="text-4xl font-extrabold text-brand-orange/30 font-heading mb-4">01</div>
+                    <h3 class="text-xl font-bold text-white font-heading mb-2">Brief</h3>
+                    <p class="text-xs text-slate-400 leading-relaxed">
+                        Share your brand guidelines, copy, style references, and overall vision via a brief form.
+                    </p>
+                </div>
+
+                <!-- Step 2 -->
+                <div class="glass-card rounded-2xl p-8 border border-white/10 relative">
+                    <div class="text-4xl font-extrabold text-brand-orange/30 font-heading mb-4">02</div>
+                    <h3 class="text-xl font-bold text-white font-heading mb-2">Design</h3>
+                    <p class="text-xs text-slate-400 leading-relaxed">
+                        I craft initial concept drafts directly inside Canva using customized layout principles.
+                    </p>
+                </div>
+
+                <!-- Step 3 -->
+                <div class="glass-card rounded-2xl p-8 border border-white/10 relative">
+                    <div class="text-4xl font-extrabold text-brand-orange/30 font-heading mb-4">03</div>
+                    <h3 class="text-xl font-bold text-white font-heading mb-2">Revision</h3>
+                    <p class="text-xs text-slate-400 leading-relaxed">
+                        We review the drafts together and refine colors, text spacing, and elements based on your feedback.
+                    </p>
+                </div>
+
+                <!-- Step 4 -->
+                <div class="glass-card rounded-2xl p-8 border border-white/10 relative">
+                    <div class="text-4xl font-extrabold text-brand-orange font-heading mb-4">04</div>
+                    <h3 class="text-xl font-bold text-white font-heading mb-2">Final Delivery</h3>
+                    <p class="text-xs text-slate-400 leading-relaxed">
+                        Receive your master Canva template transfer links along with exported print & web files.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PRICING PACKAGES -->
+    <section id="pricing" class="py-24 relative">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center max-w-2xl mx-auto mb-16 space-y-3">
+                <span class="text-xs font-semibold text-brand-orange tracking-widest uppercase">Transparent Pricing</span>
+                <h2 class="text-3xl sm:text-5xl font-extrabold text-white font-heading">Simple, Fixed Packages</h2>
+                <p class="text-slate-400 text-sm sm:text-base">No surprise charges. Choose the plan that best fits your design needs.</p>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 items-stretch">
+                <!-- Package 1: Basic -->
+                <div class="glass-card rounded-2xl p-8 border border-white/10 flex flex-col justify-between space-y-6">
+                    <div class="space-y-4">
+                        <span class="text-xs font-semibold text-slate-400 tracking-widest uppercase">Basic Starter</span>
+                        <h3 class="text-2xl font-bold text-white font-heading">Essential Graphic</h3>
+                        <p class="text-xs text-slate-400">Perfect for single asset needs or urgent quick design tasks.</p>
+                        <div class="flex items-baseline gap-1 pt-2">
+                            <span class="text-4xl font-extrabold text-white font-heading">$149</span>
+                            <span class="text-xs text-slate-400">/ per project</span>
+                        </div>
+                        <ul class="space-y-3 text-xs text-slate-300 pt-4 border-t border-white/10">
+                            <li class="flex items-center gap-2"><span class="text-brand-orange">✓</span> Up to 3 Social Assets OR 1 Poster</li>
+                            <li class="flex items-center gap-2"><span class="text-brand-orange">✓</span> 48h Delivery Turnaround</li>
+                            <li class="flex items-center gap-2"><span class="text-brand-orange">✓</span> 2 Rounds of Revisions</li>
+                            <li class="flex items-center gap-2"><span class="text-brand-orange">✓</span> Full Canva Editable Link</li>
+                            <li class="flex items-center gap-2"><span class="text-slate-600">✕</span> Canva Brand Kit Setup</li>
+                        </ul>
+                    </div>
+                    <button onclick="openOrderModal('Basic Starter')" class="w-full py-3 rounded-full text-xs font-semibold text-white glass-card border border-white/20 hover:bg-white/10 transition-all text-center">
+                        Select Basic
+                    </button>
+                </div>
+
+                <!-- Package 2: Standard (Highlighted) -->
+                <div class="glass-card rounded-2xl p-8 border-2 border-brand-orange shadow-glow-orange relative flex flex-col justify-between space-y-6 transform lg:-translate-y-2">
+                    <div class="absolute -top-3.5 left-1/2 -translate-x-1/2 px-4 py-1 rounded-full text-[10px] font-bold bg-brand-orange text-white uppercase tracking-wider">
+                        Most Popular / Recommended
+                    </div>
+                    <div class="space-y-4 pt-2">
+                        <span class="text-xs font-semibold text-brand-orange tracking-widest uppercase">Standard Growth</span>
+                        <h3 class="text-2xl font-bold text-white font-heading">Brand Creator Suite</h3>
+                        <p class="text-xs text-slate-300">Ideal for active creators, startups, and growing brands.</p>
+                        <div class="flex items-baseline gap-1 pt-2">
+                            <span class="text-4xl font-extrabold text-white font-heading">$349</span>
+                            <span class="text-xs text-slate-400">/ per project</span>
+                        </div>
+                        <ul class="space-y-3 text-xs text-slate-200 pt-4 border-t border-white/10">
+                            <li class="flex items-center gap-2"><span class="text-brand-orange">✓</span> 10 Social Assets OR 12-Slide Deck</li>
+                            <li class="flex items-center gap-2"><span class="text-brand-orange">✓</span> 24h Express Turnaround Available</li>
+                            <li class="flex items-center gap-2"><span class="text-brand-orange">✓</span> Unlimited Revisions</li>
+                            <li class="flex items-center gap-2"><span class="text-brand-orange">✓</span> Canva Master Link & Exported PNGs</li>
+                            <li class="flex items-center gap-2"><span class="text-brand-orange">✓</span> Basic Brand Kit Integration</li>
+                        </ul>
+                    </div>
+                    <button onclick="openOrderModal('Standard Growth')" class="w-full py-3 rounded-full text-xs font-semibold text-white bg-brand-orange hover:bg-brand-orangeHover shadow-glow-subtle transition-all text-center">
+                        Select Standard
+                    </button>
+                </div>
+
+                <!-- Package 3: Premium -->
+                <div class="glass-card rounded-2xl p-8 border border-white/10 flex flex-col justify-between space-y-6">
+                    <div class="space-y-4">
+                        <span class="text-xs font-semibold text-slate-400 tracking-widest uppercase">Full VIP</span>
+                        <h3 class="text-2xl font-bold text-white font-heading">Complete Brand System</h3>
+                        <p class="text-xs text-slate-400">Comprehensive end-to-end visual identity and templates.</p>
+                        <div class="flex items-baseline gap-1 pt-2">
+                            <span class="text-4xl font-extrabold text-white font-heading">$699</span>
+                            <span class="text-xs text-slate-400">/ per project</span>
+                        </div>
+                        <ul class="space-y-3 text-xs text-slate-300 pt-4 border-t border-white/10">
+                            <li class="flex items-center gap-2"><span class="text-brand-orange">✓</span> Full Brand Kit + 20 Assets + Deck</li>
+                            <li class="flex items-center gap-2"><span class="text-brand-orange">✓</span> Priority Turnaround</li>
+                            <li class="flex items-center gap-2"><span class="text-brand-orange">✓</span> Unlimited Revisions</li>
+                            <li class="flex items-center gap-2"><span class="text-brand-orange">✓</span> Full Canva Hub Transfer</li>
+                            <li class="flex items-center gap-2"><span class="text-brand-orange">✓</span> 1-on-1 Canva Training Call (30 mins)</li>
+                        </ul>
+                    </div>
+                    <button onclick="openOrderModal('Complete Brand System')" class="w-full py-3 rounded-full text-xs font-semibold text-white glass-card border border-white/20 hover:bg-white/10 transition-all text-center">
+                        Select Premium
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- TESTIMONIALS -->
+    <section class="py-24 bg-brand-dark/30 border-t border-white/5 relative">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center max-w-2xl mx-auto mb-16 space-y-3">
+                <span class="text-xs font-semibold text-brand-orange tracking-widest uppercase">Social Proof</span>
+                <h2 class="text-3xl sm:text-5xl font-extrabold text-white font-heading">What Clients Say</h2>
+                <p class="text-slate-400 text-sm sm:text-base">Real experiences from founders and marketers who leveled up with custom Canva graphics.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <!-- Testimonial 1 -->
+                <div class="glass-card p-8 rounded-2xl border border-white/10 space-y-4">
+                    <div class="text-brand-orange text-sm font-bold">★★★★★</div>
+                    <p class="text-xs text-slate-300 leading-relaxed">
+                        "The Canva templates designed for our Instagram launch were incredible! Our feed instantly went from amateur to looking like a $10k creative agency build."
+                    </p>
+                    <div class="flex items-center gap-3 pt-4 border-t border-white/10">
+                        <div class="w-10 h-10 rounded-full bg-slate-800 flex items-center justify-center font-bold text-white text-xs">
+                            EM
+                        </div>
+                        <div>
+                            <div class="text-xs font-bold text-white">Elena Rostova</div>
+                            <div class="text-[10px] text-slate-400">Founder, Glow Cosmetics</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Testimonial 2 -->
+                <div class="glass-card p-8 rounded-2xl border border-white/10 space-y-4">
+                    <div class="text-brand-orange text-sm font-bold">★★★★★</div>
+                    <p class="text-xs text-slate-300 leading-relaxed">
+                        "Delivered our 18-slide investor pitch deck in Canva within 48 hours. The layout clarity helped us close our Seed round effortlessly."
+                    </p>
+                    <div class="flex items-center gap-3 pt-4 border-t border-white/10">
+                        <div class="w-10 h-10 rounded-full bg-slate-800 flex items-center justify-center font-bold text-white text-xs">
+                            MC
+                        </div>
+                        <div>
+                            <div class="text-xs font-bold text-white">Marcus Chen</div>
+                            <div class="text-[10px] text-slate-400">CEO, TechFlow AI</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Testimonial 3 -->
+                <div class="glass-card p-8 rounded-2xl border border-white/10 space-y-4">
+                    <div class="text-brand-orange text-sm font-bold">★★★★★</div>
+                    <p class="text-xs text-slate-300 leading-relaxed">
+                        "Having the master links in my personal Canva account means my marketing team can tweak text anytime without messing up the design grid. Brilliant work!"
+                    </p>
+                    <div class="flex items-center gap-3 pt-4 border-t border-white/10">
+                        <div class="w-10 h-10 rounded-full bg-slate-800 flex items-center justify-center font-bold text-white text-xs">
+                            SK
+                        </div>
+                        <div>
+                            <div class="text-xs font-bold text-white">Sarah Jenkins</div>
+                            <div class="text-[10px] text-slate-400">CMO, Vibe Apparel</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FINAL CTA BANNER -->
+    <section class="py-20 relative overflow-hidden">
+        <div class="max-w-5xl mx-auto px-6">
+            <div class="glass-card rounded-3xl p-10 sm:p-16 border border-brand-orange/40 relative overflow-hidden text-center space-y-6 shadow-glow-orange">
+                <div class="ambient-glow top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 pointer-events-none"></div>
+
+                <span class="text-xs font-semibold text-brand-orange tracking-widest uppercase">Start Your Transformation</span>
+                <h2 class="text-3xl sm:text-5xl font-extrabold text-white font-heading max-w-2xl mx-auto">
+                    Let's Create Something Great Together.
+                </h2>
+                <p class="text-sm sm:text-base text-slate-300 max-w-xl mx-auto">
+                    Ready to transform your brand graphics with professional Canva assets? Book your project slot today.
+                </p>
+                <div class="pt-4">
+                    <button onclick="openOrderModal()" class="px-8 py-4 rounded-full text-base font-semibold text-white bg-brand-orange hover:bg-brand-orangeHover shadow-glow-orange transition-all duration-300 transform hover:-translate-y-1 inline-flex items-center gap-2">
+                        <span>Start Your Project</span>
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="py-12 bg-brand-black border-t border-white/10 text-xs text-slate-400">
+        <div class="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-12 gap-8 items-center">
+            <!-- Brand -->
+            <div class="md:col-span-4 space-y-2">
+                <a href="#" class="font-heading font-extrabold text-lg text-white tracking-tight flex items-center">
+                    OkyDesain<span class="text-brand-orange ml-0.5">.</span>
+                </a>
+                <p class="text-slate-400 max-w-sm">
+                    Premium Canva Design & Visual Branding. Modern graphic solutions for forward-thinking brands.
+                </p>
+            </div>
+
+            <!-- Quick Links -->
+            <div class="md:col-span-5 flex flex-wrap gap-6 text-slate-300">
+                <a href="#about" class="hover:text-brand-orange transition-colors">About</a>
+                <a href="#services" class="hover:text-brand-orange transition-colors">Services</a>
+                <a href="#portfolio" class="hover:text-brand-orange transition-colors">Portfolio</a>
+                <a href="#pricing" class="hover:text-brand-orange transition-colors">Pricing</a>
+                <a href="#process" class="hover:text-brand-orange transition-colors">Process</a>
+            </div>
+
+            <!-- Social Links -->
+            <div class="md:col-span-3 flex items-center justify-start md:justify-end gap-4 text-slate-300">
+                <a href="#" class="w-8 h-8 rounded-full glass-card flex items-center justify-center hover:text-brand-orange hover:border-brand-orange transition-colors">Be</a>
+                <a href="#" class="w-8 h-8 rounded-full glass-card flex items-center justify-center hover:text-brand-orange hover:border-brand-orange transition-colors">Db</a>
+                <a href="#" class="w-8 h-8 rounded-full glass-card flex items-center justify-center hover:text-brand-orange hover:border-brand-orange transition-colors">In</a>
+                <a href="#" class="w-8 h-8 rounded-full glass-card flex items-center justify-center hover:text-brand-orange hover:border-brand-orange transition-colors">Ig</a>
+            </div>
+        </div>
+
+        <div class="max-w-7xl mx-auto px-6 pt-8 mt-8 border-t border-white/5 flex flex-col sm:flex-row justify-between items-center gap-4 text-[11px]">
+            <div>© 2026 OkyDesain. All rights reserved.</div>
+            <div class="flex gap-4">
+                <a href="#" class="hover:underline">Privacy Policy</a>
+                <a href="#" class="hover:underline">Terms of Service</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- INTERACTIVE ORDER MODAL -->
+    <div id="order-modal" class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-md opacity-0 pointer-events-none modal-fade">
+        <div class="glass-card rounded-2xl border border-white/15 p-6 sm:p-8 max-w-lg w-full relative shadow-2xl bg-brand-dark space-y-6 max-h-[90vh] overflow-y-auto">
+            <button onclick="closeOrderModal()" class="absolute top-4 right-4 text-slate-400 hover:text-white p-2">
+                ✕
+            </button>
+
+            <div>
+                <span class="text-xs font-semibold text-brand-orange tracking-widest uppercase">Start Project</span>
+                <h3 class="text-2xl font-bold text-white font-heading">Order Your Canva Design</h3>
+                <p class="text-xs text-slate-400 mt-1">Fill out this quick brief and I will respond within 12 hours.</p>
+            </div>
+
+            <form id="order-form" onsubmit="handleFormSubmit(event)" class="space-y-4 text-xs">
+                <div>
+                    <label class="block text-slate-300 font-medium mb-1">Your Name *</label>
+                    <input type="text" required placeholder="Jane Doe" class="w-full px-4 py-3 rounded-xl glass-card border border-white/10 text-white focus:outline-none focus:border-brand-orange">
+                </div>
+
+                <div>
+                    <label class="block text-slate-300 font-medium mb-1">Email Address *</label>
+                    <input type="email" required placeholder="jane@brand.com" class="w-full px-4 py-3 rounded-xl glass-card border border-white/10 text-white focus:outline-none focus:border-brand-orange">
+                </div>
+
+                <div>
+                    <label class="block text-slate-300 font-medium mb-1">Service Required</label>
+                    <select id="modal-service-select" class="w-full px-4 py-3 rounded-xl glass-card border border-white/10 text-white bg-brand-card focus:outline-none focus:border-brand-orange">
+                        <option value="Social Media Design">Social Media Design</option>
+                        <option value="Instagram Feed">Instagram Feed Curation</option>
+                        <option value="Poster Design">Poster / Event Graphic</option>
+                        <option value="Presentation Design">Presentation Pitch Deck</option>
+                        <option value="Promotional Design">Promotional E-Book / Flyer</option>
+                        <option value="Branding / Identity">Branding / Visual Identity</option>
+                        <option value="Custom Canva Request">Custom Canva Request</option>
+                    </select>
+                </div>
+
+                <div>
+                    <label class="block text-slate-300 font-medium mb-1">Estimated Budget Range</label>
+                    <select class="w-full px-4 py-3 rounded-xl glass-card border border-white/10 text-white bg-brand-card focus:outline-none focus:border-brand-orange">
+                        <option value="$100 - $300">$100 – $300</option>
+                        <option value="$300 - $600">$300 – $600</option>
+                        <option value="$600+">$600+</option>
+                    </select>
+                </div>
+
+                <div>
+                    <label class="block text-slate-300 font-medium mb-1">Project Details / Goal</label>
+                    <textarea rows="3" placeholder="Describe what you need designed, target timeline, etc..." class="w-full px-4 py-3 rounded-xl glass-card border border-white/10 text-white focus:outline-none focus:border-brand-orange"></textarea>
+                </div>
+
+                <button type="submit" class="w-full py-3.5 rounded-full font-semibold text-white bg-brand-orange hover:bg-brand-orangeHover shadow-glow-orange transition-all text-sm">
+                    Submit Project Inquiry
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <!-- LIGHTBOX MODAL -->
+    <div id="lightbox-modal" class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/90 backdrop-blur-md opacity-0 pointer-events-none modal-fade">
+        <div class="glass-card rounded-2xl border border-white/15 p-6 max-w-2xl w-full relative shadow-2xl bg-brand-dark space-y-4">
+            <button onclick="closeLightbox()" class="absolute top-4 right-4 text-slate-400 hover:text-white p-2">
+                ✕
+            </button>
+            <div id="lightbox-img-container" class="rounded-xl overflow-hidden h-72 sm:h-96 bg-neutral-900">
+                <img id="lightbox-img" src="" alt="Project Preview" class="w-full h-full object-cover">
+            </div>
+            <div>
+                <span id="lightbox-category" class="px-3 py-1 rounded-full text-[10px] font-semibold bg-brand-orange/20 text-brand-orange border border-brand-orange/30"></span>
+                <h3 id="lightbox-title" class="text-2xl font-bold text-white font-heading mt-2"></h3>
+                <p id="lightbox-desc" class="text-xs text-slate-400 mt-1"></p>
+            </div>
+        </div>
+    </div>
+
+    <!-- TOAST NOTIFICATION -->
+    <div id="toast" class="fixed bottom-6 right-6 z-50 glass-card px-6 py-4 rounded-xl border border-brand-orange/50 text-white text-xs font-semibold shadow-glow-orange transform translate-y-20 opacity-0 transition-all duration-300 flex items-center gap-2">
+        <span>✨ Project inquiry sent successfully! I'll contact you soon.</span>
+    </div>
+
+    <!-- JAVASCRIPT CONTROLLERS -->
+    <script>
+        // Mobile Navigation Toggle
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const mobileLinks = document.querySelectorAll('.mobile-link');
+
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        mobileLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+            });
+        });
+
+        // Portfolio Filtering logic
+        const filterBtns = document.querySelectorAll('.filter-btn');
+        const portfolioItems = document.querySelectorAll('.portfolio-item');
+
+        filterBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                filterBtns.forEach(b => {
+                    b.classList.remove('bg-brand-orange', 'text-white', 'border-brand-orange');
+                    b.classList.add('glass-card', 'text-slate-300', 'border-white/10');
+                });
+
+                btn.classList.add('bg-brand-orange', 'text-white', 'border-brand-orange');
+                btn.classList.remove('glass-card', 'text-slate-300', 'border-white/10');
+
+                const filter = btn.getAttribute('data-filter');
+
+                portfolioItems.forEach(item => {
+                    if (filter === 'all' || item.getAttribute('data-category') === filter) {
+                        item.style.display = 'block';
+                    } else {
+                        item.style.display = 'none';
+                    }
+                });
+            });
+        });
+
+        // Order Modal Functions
+        const orderModal = document.getElementById('order-modal');
+        const serviceSelect = document.getElementById('modal-service-select');
+
+        function openOrderModal(packageName = '') {
+            if (packageName) {
+                // Preselect matching option if passed
+                for (let option of serviceSelect.options) {
+                    if (option.text.toLowerCase().includes(packageName.toLowerCase())) {
+                        option.selected = true;
+                        break;
+                    }
+                }
+            }
+            orderModal.classList.remove('opacity-0', 'pointer-events-none');
+        }
+
+        function closeOrderModal() {
+            orderModal.classList.add('opacity-0', 'pointer-events-none');
+        }
+
+        // Lightbox Functions
+        const lightboxModal = document.getElementById('lightbox-modal');
+        const lightboxImg = document.getElementById('lightbox-img');
+        const lightboxTitle = document.getElementById('lightbox-title');
+        const lightboxCategory = document.getElementById('lightbox-category');
+        const lightboxDesc = document.getElementById('lightbox-desc');
+
+        function openLightbox(title, category, desc, imgSrc) {
+            lightboxImg.src = imgSrc;
+            lightboxTitle.innerText = title;
+            lightboxCategory.innerText = category;
+            lightboxDesc.innerText = desc;
+            lightboxModal.classList.remove('opacity-0', 'pointer-events-none');
+        }
+
+        function closeLightbox() {
+            lightboxModal.classList.add('opacity-0', 'pointer-events-none');
+        }
+
+        // Form Submit Handler
+        function handleFormSubmit(event) {
+            event.preventDefault();
+            closeOrderModal();
+            showToast();
+            document.getElementById('order-form').reset();
+        }
+
+        function showToast() {
+            const toast = document.getElementById('toast');
+            toast.classList.remove('translate-y-20', 'opacity-0');
+            setTimeout(() => {
+                toast.classList.add('translate-y-20', 'opacity-0');
+            }, 4000);
+        }
+    </script>
+</body>
+</html>
